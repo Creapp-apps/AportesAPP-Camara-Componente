@@ -46,13 +46,14 @@ Expected JSON structure example:
 Analyze the image carefully and provide the most accurate transcription possible.`,
             },
           ],
-        });
+        },
+      ],
+    });
 
-      const extractedData = JSON.parse(text);
-      return new Response(JSON.stringify(extractedData), { status: 200 });
-    } catch (error: any) {
-      console.error("Extraction error:", error);
-      return new Response(JSON.stringify({ error: error.message || "Internal Server Error" }), { status: 500 });
-    }
+    const extractedData = JSON.parse(text);
+    return new Response(JSON.stringify(extractedData), { status: 200 });
+  } catch (error: any) {
+    console.error("Extraction error:", error);
+    return new Response(JSON.stringify({ error: error.message || "Internal Server Error" }), { status: 500 });
   }
 }
